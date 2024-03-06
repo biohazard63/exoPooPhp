@@ -42,3 +42,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 function afficherStats($guerrier) {
     return $guerrier->getName() . " a " . $guerrier->getLife() . " point de vie et " . $guerrier->getPower() . " points d'attaque.";
 }
+
+function battelRoyale($allWarriors) {
+    $battleLog = array();
+    $nbWarriors = count($allWarriors);
+    $nbBattles = 0;
+    for ($i = 0; $i < $nbWarriors; $i++) {
+        for ($j = $i + 1; $j < $nbWarriors; $j++) {
+            $battleLog[] = "Battle " . ++$nbBattles . ": " . $allWarriors[$i]->getName() . " vs " . $allWarriors[$j]->getName();
+            $battleLog = array_merge($battleLog, battle($allWarriors[$i], $allWarriors[$j]));
+        }
+    }
+    return $battleLog;
+}
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    if (isset($_POST['battleRoyale'])) {
+        $battleLog = battelRoyale($allWarriors);
+    }
+}
