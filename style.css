@@ -30,6 +30,16 @@ h1, h2 {
     color: #ff6347;
     text-shadow: 2px 2px 4px #000000;
 }
+.mainEvent{
+    display: flex;
+
+}
+.warriore1{
+    color: red;
+}
+.warrior2{
+    color: #fff200;
+}
 
 form {
     margin: 20px 0;

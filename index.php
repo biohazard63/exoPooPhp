@@ -19,10 +19,16 @@ require 'function.php';
 <body>
 <main class="highlight">
     <h1>Warrior Battle</h1>
-    <h2>Warrior 1: <?php echo $warrior1->getName() ?></h2>
-    <p><?php echo afficherStats($warrior1); ?></p>
-    <h2>Warrior 2: <?php echo $warrior2->getName() ?></h2>
-    <p><?php echo afficherStats($warrior2); ?></p>
+    <div class="mainEvent">
+        <div class="warriore1">
+            <h2>Warrior 1: <?php echo $warrior1->getName() ?></h2>
+            <p><?php echo afficherStats($warrior1); ?></p>
+        </div>
+        <div class="warrior2">
+            <h2>Warrior 2: <?php echo $warrior2->getName() ?></h2>
+            <p><?php echo afficherStats($warrior2); ?></p>
+        </div>
+    </div>
     <form method="post">
         <button type="submit" name="battle">Battle</button>
         <button type="submit" name="battleRoyale">Battle Royale</button>
