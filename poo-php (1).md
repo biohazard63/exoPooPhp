@@ -51,3 +51,10 @@ Un lien vers GitLab
 - Le code source est documenté
 - Utiliser les normes de codage du langage
 - Utiliser un outil de gestion de versions
+
+## Suite 
+
+1) creer une classe Weapon chaque Warrior devra utiliser une $arme de la classe Weapon
+2) utiliser au moin une methode abstraite dans la classe de votre choix
+3) utiliser au moin 1 trait dans votre code
+4) ajouter des faiblesses selon le type d'arme (sur la classe Warrior)

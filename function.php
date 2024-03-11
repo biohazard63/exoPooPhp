@@ -1,14 +1,23 @@
 <?php
 
-$allWarriors = [
-    new WarriorAxe('Axe', 10, 100),
-    new WarriorSword('Sword', 10, 100),
-    new WarriorSpear('Spear', 10, 100),
-    new WarriorBow('Bow', 10, 100),
-    new WarriorShield('Shield', 10, 100),
-    new WarriorMagic('Magic', 10, 100),
+
+$allWeapons = [
+    new Axe(),
+    new Sword(),
+    new Spear(),
+    new Bow(),
+    new Shield(),
+    new Magic(),
 ];
 
+$allWarriors = [
+    new WarriorAxe('gutz', 10, 100, $allWeapons[0]),
+    new WarriorSword('zoro', 10, 100, $allWeapons[1]),
+    new WarriorSpear('lancier', 10, 100, $allWeapons[2]),
+    new WarriorBow('legolas', 10, 100, $allWeapons[3]),
+    new WarriorShield('havel', 10, 100, $allWeapons[4]),
+    new WarriorMagic('merlin', 10, 100, $allWeapons[5]),
+];
 $warrior1 = $allWarriors[array_rand($allWarriors)];
 $warrior2 = $allWarriors[array_rand($allWarriors)];
 
@@ -25,7 +34,7 @@ function battle($warrior1, $warrior2) {
     } elseif (!$warrior1->isAlive() && $warrior2->isAlive()) {
         $battleLog[] = $warrior2->getName() . " wins";
     } else {
-        $battleLog[] = "It's a draw";
+        $battleLog[] = "Match null";
     }
 
     return $battleLog;
@@ -40,9 +49,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 
 function afficherStats($guerrier) {
-    return $guerrier->getName() . " a " . $guerrier->getLife() . " point de vie et " . $guerrier->getPower() . " points d'attaque.";
+    return $guerrier->getName() . " a " . $guerrier->getLife()
+        . " point de vie et " . $guerrier->getPower() . " points d'attaque. Son arme " . $guerrier->getWeaponInfo() . ".";
 }
-
 function battelRoyale($allWarriors) {
     $battleLog = array();
     $nbWarriors = count($allWarriors);
